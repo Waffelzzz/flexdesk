@@ -1,0 +1,20 @@
+$kind: http-request
+name: client_archive_insert
+url: http://localhost:8000/v1/client-archive/1/insert
+method: POST
+headers:
+  - key: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYW5hZ2VyMTIzIiwiZXhwIjoxNzc2NjE3MTg3fQ.lYZieIcZZH2Rf8LgXd7fKoKLe6a98IbM420-_3mR4rg
+body:
+  type: json
+  content: "{\r
+
+    \    \"service_master_id\": 3,   \r
+
+    \    \"organization_id\": 1\r
+
+    }\r
+
+    \    "
+order: 15000

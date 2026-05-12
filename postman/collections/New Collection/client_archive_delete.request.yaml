@@ -1,0 +1,7 @@
+$kind: http-request
+name: client_archive_delete
+url: http://localhost:8000/v1/client-archive/5/delete
+method: POST
+headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYW5hZ2VyMTIzIiwiZXhwIjoxNzc2NjE3MTg3fQ.lYZieIcZZH2Rf8LgXd7fKoKLe6a98IbM420-_3mR4rg
+order: 14968

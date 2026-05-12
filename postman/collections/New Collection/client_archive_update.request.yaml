@@ -1,0 +1,20 @@
+$kind: http-request
+name: client_archive_update
+url: http://localhost:8000/v1/client-archive/5/update
+method: POST
+headers:
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYW5hZ2VyMTIzIiwiZXhwIjoxNzc2NjIwOTIzfQ.nQODfWFFj2UAnkRaxFZ29l6ZrcpjHEkwVoACXrp_hmI
+body:
+  type: json
+  content: "{\r
+
+    \    \"client_id\": 1,\r
+
+    \    \"service_master_id\": 3,   \r
+
+    \    \"organization_id\": 1\r
+
+    }\r
+
+    \    "
+order: 3580275254627330

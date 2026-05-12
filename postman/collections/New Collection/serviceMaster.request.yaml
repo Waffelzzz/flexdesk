@@ -1,0 +1,17 @@
+$kind: http-request
+name: serviceMaster
+url: http://localhost:8000/v1/masters/service
+method: POST
+headers:
+  Authorization: Bearer
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYW5hZ2VyMTIzIiwiZXhwIjoxNzc0MjEzNDY4fQ.HfLUz_WYMt3JFlaKFL1ZYZ4DLZOumrXpcsfrYu_Yj58
+body:
+  type: json
+  content: "{\r
+
+    \    \"master_id\": 1,\r
+
+    \    \"service_id\": 1\r
+
+    }"
+order: 7000
