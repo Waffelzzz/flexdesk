@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:17
+    container_name: postgres_db
+    restart: always
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5433:5432"
+    volumes:
+      - pg_data_flex_desk:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis_cache
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data_flex_desk:/data
+    healthcheck:
+      test: [ "CMD", "redis-cli", "-a", "${REDIS_PASSWORD}", "ping" ]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+  desk-api:
+    build:
+        context: ./backend
+        dockerfile: Dockerfile
+    container_name: deskapi_app
+    restart: always
+    env_file:
+      - .env
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+
+  middleware-api-app:
+      build:
+        context: ./Middleware/Middleware
+        dockerfile: Dockerfile
+      container_name: middleware-api-app
+      restart: always
+      env_file:
+        - .env
+      environment:
+        ASPNETCORE_URLS: http://+:8080
+        POSTGRES_HOST: db
+        POSTGRES_PORT: 5432
+      ports:
+        - "8081:8080"
+      depends_on:
+        db:
+          condition: service_healthy
+        redis:
+            condition: service_healthy
+
+volumes:
+  pg_data_flex_desk:
+  redis_data_flex_desk:

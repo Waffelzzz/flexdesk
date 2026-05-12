@@ -1,0 +1,8 @@
+$kind: http-request
+name: master
+url: http://localhost:8000/v1/masters/1
+method: GET
+headers:
+  Authorization: Bearer
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYW5hZ2VyMTIzIiwiZXhwIjoxNzc1Mzk3MTQ1fQ.uIW_Ixs68sfISTE8Ml0np6MdACX5S6Hq7K-L6tkCrJ0
+order: 9000

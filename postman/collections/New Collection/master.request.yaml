@@ -1,0 +1,15 @@
+$kind: http-request
+name: master
+url: http://localhost:8000/v1/masters
+method: POST
+headers:
+  Authorization: Bearer
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYW5hZ2VyMTIzIiwiZXhwIjoxNzczNjkyMDM5fQ.2GGsqa5j0BKL3vi-E8lV3BJ1Nr55sjh12u3cqaZnQkk
+body:
+  type: json
+  content: "{\r
+
+    \    \"specialization\": \"asda\"\r
+
+    }"
+order: 1000

@@ -1,0 +1,9 @@
+$kind: http-request
+name: master_of_org
+url: http://localhost:8000/v1/masters/1
+method: GET
+headers:
+  - key: Authorization
+    value: Bearer
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYW5hZ2VyMTIzIiwiZXhwIjoxNzc0MjE4MTcyfQ.txNb2HkCFDaps44TPipLUYkvDSdUmmk5IK_OguQoRQw
+order: 8000

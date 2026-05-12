@@ -1,0 +1,5 @@
+$kind: http-request
+name: my_orgs
+url: ""
+method: GET
+order: 4000

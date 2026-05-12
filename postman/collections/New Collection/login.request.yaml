@@ -1,0 +1,16 @@
+$kind: http-request
+name: login
+url: http://localhost:8000/v1/auth/login
+method: POST
+body:
+  type: urlencoded
+  content:
+    - key: username
+      value: manager123
+      disabled: false
+      description: manager123
+    - key: password
+      value: manager123
+      disabled: false
+      description: manager123
+order: 3000
